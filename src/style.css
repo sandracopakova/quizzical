@@ -77,3 +77,13 @@ input[type="radio"] {
   color: white;
   padding: 0.7rem;
 }
+
+.question__btn--correct {
+  background-color: #94d7a2;
+  border: 1px solid #94d7a2;
+}
+
+.question__btn--wrong {
+  background-color: #f8bcbc;
+  border: 1px solid #f8bcbc;
+}

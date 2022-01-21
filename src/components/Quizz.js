@@ -11,9 +11,8 @@ function shuffleArray(array) {
 }
 
 export default function Quizz() {
-  //ukládá data
-  const [formData, setFormData] = useState({});
-  const [score, setScore] = useState(null);
+  const [formData, setFormData] = useState({}); //data
+  const [score, setScore] = useState(null); //počet správných odpovědí
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -44,7 +43,16 @@ export default function Quizz() {
       });
   }, []);
   const questionElements = questions.map((obj) => (
-    <Question key={obj.title} value={formData[obj.title]} title={obj.title} answers={obj.answers} correctAnswer={obj.correctAnswer} handleChange={handleChange} />
+    <Question
+      key={obj.title}
+      revealCorrect={score !== null}
+      correctWrong={score !== null}
+      value={formData[obj.title]}
+      title={obj.title}
+      answers={obj.answers}
+      correctAnswer={obj.correctAnswer}
+      handleChange={handleChange}
+    />
   ));
   console.table(formData);
   return (
