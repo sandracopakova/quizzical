@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Quizz from "./components/Quizz";
+import Start from "./components/Start";
 
 export default function App() {
+  const [isIntro, setIsIntro] = useState(true);
+
   return (
     <>
-      <Quizz />
+      {isIntro ? (
+        <Start
+          onBtnClick={() => {
+            setIsIntro(false);
+          }}
+        />
+      ) : (
+        <Quizz />
+      )}
     </>
   );
 }
