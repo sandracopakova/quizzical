@@ -13,6 +13,7 @@ function shuffleArray(array) {
 export default function Quizz() {
   const [formData, setFormData] = useState({}); //data
   const [score, setScore] = useState(null); //počet správných odpovědí
+  const [questions, setQuestions] = useState([]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -24,9 +25,8 @@ export default function Quizz() {
     });
   }
 
-  const [questions, setQuestions] = useState([]);
-  useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
+  function fetchNewData() {
+    return fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
       .then((response) => response.json())
       .then((data) => {
         setQuestions(
@@ -41,12 +41,17 @@ export default function Quizz() {
           })
         );
       });
+  }
+
+  useEffect(() => {
+    fetchNewData();
   }, []);
   const questionElements = questions.map((obj) => (
     <Question
       key={obj.title}
       revealCorrect={score !== null}
       correctWrong={score !== null}
+      muted={score !== null}
       value={formData[obj.title]}
       title={obj.title}
       answers={obj.answers}
@@ -64,22 +69,36 @@ export default function Quizz() {
             You scored {score}/{questions.length} correct answers
           </div>
         )}
-        <button
-          className="btn submit__btn"
-          //počet správných odpovědí
-          onClick={() => {
-            let correctAnswers = 0;
-            questions.forEach((question) => {
-              const userAnswer = formData[question.title];
-              if (question.correctAnswer === userAnswer) {
-                correctAnswers++;
-              }
-            });
-            setScore(correctAnswers);
-          }}
-        >
-          Check answers
-        </button>
+        {score === null ? (
+          <button
+            className="btn submit__btn"
+            //počet správných odpovědí
+            onClick={() => {
+              let correctAnswers = 0;
+              questions.forEach((question) => {
+                const userAnswer = formData[question.title];
+                if (question.correctAnswer === userAnswer) {
+                  correctAnswers++;
+                }
+              });
+              setScore(correctAnswers);
+            }}
+          >
+            Check answers
+          </button>
+        ) : (
+          <button
+            className="btn submit__btn"
+            onClick={() => {
+              fetchNewData().then(() => {
+                setScore(null);
+                setFormData({});
+              });
+            }}
+          >
+            Play again
+          </button>
+        )}
       </div>
     </>
   );

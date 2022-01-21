@@ -12,6 +12,7 @@ export default function Question(props) {
               props.value === answer ? "question__btn--checked" : "",
               props.correctAnswer === answer && props.revealCorrect ? "question__btn--correct" : "",
               props.value === answer && props.value !== props.correctAnswer && props.correctWrong ? "question__btn--wrong" : "",
+              props.correctAnswer !== answer && props.muted ? "question__btn--muted" : "",
             ];
             return (
               <label className={labelClasses.join(" ")} key={answer}>

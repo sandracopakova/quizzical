@@ -76,6 +76,7 @@ input[type="radio"] {
   background-color: #4d5b9e;
   color: white;
   padding: 0.7rem;
+  font-weight: 600;
 }
 
 .question__btn--correct {
@@ -86,4 +87,8 @@ input[type="radio"] {
 .question__btn--wrong {
   background-color: #f8bcbc;
   border: 1px solid #f8bcbc;
+}
+
+.question__btn--muted {
+  opacity: 50%;
 }
