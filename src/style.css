@@ -1,0 +1,79 @@
+:root {
+  --main: #293264;
+  --secondary: #d6dbf5;
+  background-color: white;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  color: var(--main);
+  background-color: #f5f7fb;
+  margin: auto;
+  max-width: 900px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.question {
+  border: 0 none;
+  border-bottom: 1px solid #dbdef0;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.question__title {
+  font-size: 1.2rem;
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+.question__btn-wrap {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn,
+.question__btn {
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  padding: 0.25rem 1rem;
+  border: 1px solid var(--main);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.question__btn--checked {
+  background-color: var(--secondary);
+  border: var(--secondary);
+}
+
+.form__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.submit__btn {
+  background-color: #4d5b9e;
+  color: white;
+  padding: 0.7rem;
+}
