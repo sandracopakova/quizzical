@@ -8,7 +8,7 @@ export default function Question(props) {
         <div className="question__btn-wrap">
           {props.answers.map((answer) => {
             const labelClasses = [
-              "question__btn",
+              "btn",
               props.value === answer ? "question__btn--checked" : "",
               props.correctAnswer === answer && props.revealCorrect ? "question__btn--correct" : "",
               props.value === answer && props.value !== props.correctAnswer && props.correctWrong ? "question__btn--wrong" : "",

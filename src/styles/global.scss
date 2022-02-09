@@ -1,0 +1,47 @@
+:root {
+  --main: #293264;
+  --secondary: #d6dbf5;
+  background-color: #fff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  padding: 2rem;
+  font-family: "Karla", sans-serif;
+  color: var(--main);
+  background-color: #f5f7fb;
+  max-width: 56.25rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input[type="radio"] {
+  margin: 0;
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+}
+
+.btn {
+  border: 1px solid var(--main);
+  border-radius: 8px;
+  padding: 0.25rem 1rem;
+  font-family: "Inter", sans-serif;
+  display: inline-block;
+  cursor: pointer;
+}
+
+@import "./start.scss";
+@import "./quizz.scss";
+@import "./question.scss";
