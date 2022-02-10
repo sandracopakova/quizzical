@@ -33,15 +33,7 @@ input[type="radio"] {
   /* Not removed via appearance */
 }
 
-.btn {
-  border: 1px solid var(--main);
-  border-radius: 8px;
-  padding: 0.25rem 1rem;
-  font-family: "Inter", sans-serif;
-  display: inline-block;
-  cursor: pointer;
-}
-
 @import "./start.scss";
 @import "./quizz.scss";
 @import "./question.scss";
+@import "./btn.scss";

@@ -71,7 +71,7 @@ export default function Quizz() {
         )}
         {score === null ? (
           <button
-            className="btn submit__btn"
+            className="btn btn--submit"
             //počet správných odpovědí
             onClick={() => {
               let correctAnswers = 0;
@@ -88,7 +88,7 @@ export default function Quizz() {
           </button>
         ) : (
           <button
-            className="btn submit__btn"
+            className="btn btn--submit"
             onClick={() => {
               fetchNewData().then(() => {
                 setScore(null);
